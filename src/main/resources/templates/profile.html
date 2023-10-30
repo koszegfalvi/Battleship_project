@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>User Profile</title>
+</head>
+<body>
+<a th:href="@{/}">Home</a>
+<h1>User Profile</h1>
+<p>Name: <span th:text="${userProfile.name}"></span></p>
+<p>Email: <span th:text="${userProfile.email}"></span></p>
+<p>Password: <span th:text="${userProfile.password}"></span></p>
+<p>Wins: <span th:text="${userProfile.win}"></span></p>
+<p>Loses: <span th:text="${userProfile.lose}"></span></p>
+<p>Win Ratio: <span th:text="${userProfile.winRatio}"></span></p>
+</body>
+</html>
