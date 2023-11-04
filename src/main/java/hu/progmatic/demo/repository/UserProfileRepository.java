@@ -1,7 +1,10 @@
 package hu.progmatic.demo.repository;
 
-import hu.progmatic.demo.model.UserProfile;
+import hu.progmatic.demo.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
+@Repository
+public interface UserProfileRepository extends JpaRepository<User, Integer> {
+    User findByUserName(String userName);
 }

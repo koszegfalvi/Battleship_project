@@ -1,26 +1,29 @@
 package hu.progmatic.demo.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import lombok.Data;
+
+@Data
+@Entity
 
 public class UserProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String email;
 
-    private String password;
-    private int win;
-    private int lose;
+    private int id;
+    private int score;
+    private int wins;
+    private int losses;
+    private double winLossRatio;
+    @OneToOne(mappedBy = "userProfile")
+    private User user;
 
-    // Getters and setters for the above fields
 
     public double getWinRatio() {
-        if (lose == 0) {
-            return 1.0; // To avoid division by zero
+        if (losses == 0) {
+            return 1.0;
         }
-        return (double) win / lose;
+        return (double) wins / losses;
     }
 }
